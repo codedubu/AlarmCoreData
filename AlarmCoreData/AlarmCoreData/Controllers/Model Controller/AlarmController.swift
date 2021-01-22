@@ -29,7 +29,7 @@ class AlarmController {
     }
     
     func fetchAlarm() {
-        
+        self.alarms = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
     }
     
     func update(alarm: Alarm, newTitle: String, newFireDate: Date, isEnabled: Bool) {

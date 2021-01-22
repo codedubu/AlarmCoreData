@@ -30,9 +30,10 @@ class AlarmDetailTableViewController: UITableViewController {
         if let alarm = alarm {
             AlarmController.shared.toggleIsEnabled(alarm: alarm)
             isAlarmOn = alarm.isEnabled
-        } else {
-            isAlarmOn != alarm?.isEnabled
+        } else  {
+            isAlarmOn = !isAlarmOn
         }
+        designIsEnabledButton()
         
     }
     
@@ -44,7 +45,7 @@ class AlarmDetailTableViewController: UITableViewController {
         } else {
             AlarmController.shared.createAlarm(withTitle: alarmTitle, fireDate: alarmFireDatePicker.date)
         }
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Helper Functions

@@ -23,7 +23,9 @@ class AlarmTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func isEnabledSwitchToggled(_ sender: UISwitch) {
+        
         delegate?.alarmWasToggled(sender: self)
+        
         
     }
     
