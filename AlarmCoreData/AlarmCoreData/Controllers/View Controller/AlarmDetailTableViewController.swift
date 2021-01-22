@@ -17,7 +17,7 @@ class AlarmDetailTableViewController: UITableViewController {
     
     // MARK: - Properties
     var alarm: Alarm?
-    
+    var isAlarmOn: Bool = true
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -27,11 +27,24 @@ class AlarmDetailTableViewController: UITableViewController {
     // MARK: - Actions
 
     @IBAction func alarmIsEnabledButtonTapped(_ sender: UIButton) {
+        if let alarm = alarm {
+            AlarmController.shared.toggleIsEnabled(alarm: alarm)
+            isAlarmOn = alarm.isEnabled
+        } else {
+            isAlarmOn != alarm?.isEnabled
+        }
         
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let alarmTitle = alarmTitleTextField.text, !alarmTitle.isEmpty else { return }
         
+        if let alarm = alarm {
+            AlarmController.shared.update(alarm: alarm, newTitle: alarmTitle, newFireDate: alarmFireDatePicker.date, isEnabled: isAlarmOn)
+        } else {
+            AlarmController.shared.createAlarm(withTitle: alarmTitle, fireDate: alarmFireDatePicker.date)
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Helper Functions
@@ -40,11 +53,19 @@ class AlarmDetailTableViewController: UITableViewController {
         guard let alarm = alarm else { return }
         alarmFireDatePicker.date = alarm.fireDate ?? Date()
         alarmTitleTextField.text = alarm.title
-        
+        isAlarmOn = alarm.isEnabled
+        designIsEnabledButton()
     }
     
     func designIsEnabledButton() {
-        
+        switch isAlarmOn {
+        case true:
+            alarmIsEnabledButton.backgroundColor = .white
+            alarmIsEnabledButton.setTitle("On", for: .normal)
+        case false:
+            alarmIsEnabledButton.backgroundColor = .darkGray
+            alarmIsEnabledButton.setTitle("Off", for: .normal)
+        }
     }
 
     // MARK: - Table view data source
