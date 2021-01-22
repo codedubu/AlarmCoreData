@@ -22,11 +22,8 @@ class AlarmTableViewCell: UITableViewCell {
     weak var delegate: AlarmTableViewCellDelegate?
     
     // MARK: - Actions
-    @IBAction func isEnabledSwitchToggled(_ sender: UISwitch) {
-        
+    @IBAction func isEnabledSwitchToggled(_ sender: Any) {
         delegate?.alarmWasToggled(sender: self)
-        
-        
     }
     
     // MARK: - Helper Functions

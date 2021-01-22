@@ -14,6 +14,7 @@
 		7966CD4325BA40F4004C7190 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7966CD4225BA40F4004C7190 /* DateHelper.swift */; };
 		7966CD4725BA447C004C7190 /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7966CD4625BA447C004C7190 /* AlarmListTableViewController.swift */; };
 		79A1B51825BA8CFC003A6954 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A1B51725BA8CFC003A6954 /* AlarmDetailTableViewController.swift */; };
+		79A1B52225BAA372003A6954 /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A1B52125BAA372003A6954 /* AlarmScheduler.swift */; };
 		FBF66FDA25B755D40038F7AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF66FD925B755D40038F7AC /* AppDelegate.swift */; };
 		FBF66FDC25B755D40038F7AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF66FDB25B755D40038F7AC /* SceneDelegate.swift */; };
 		FBF66FE125B755D40038F7AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF66FDF25B755D40038F7AC /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		7966CD4225BA40F4004C7190 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		7966CD4625BA447C004C7190 /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
 		79A1B51725BA8CFC003A6954 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
+		79A1B52125BAA372003A6954 /* AlarmScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
 		FBF66FD625B755D40038F7AC /* AlarmCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF66FD925B755D40038F7AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF66FDB25B755D40038F7AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				7966CD4225BA40F4004C7190 /* DateHelper.swift */,
+				79A1B52125BAA372003A6954 /* AlarmScheduler.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				FBF66FDA25B755D40038F7AC /* AppDelegate.swift in Sources */,
 				FBF66FE425B755D40038F7AC /* AlarmCoreData.xcdatamodeld in Sources */,
 				FBF66FDC25B755D40038F7AC /* SceneDelegate.swift in Sources */,
+				79A1B52225BAA372003A6954 /* AlarmScheduler.swift in Sources */,
 				7966CD2F25BA2FA9004C7190 /* Alarm+Convenience.swift in Sources */,
 				7966CD3C25BA3A7D004C7190 /* AlarmTableViewCell.swift in Sources */,
 				7966CD4725BA447C004C7190 /* AlarmListTableViewController.swift in Sources */,

@@ -11,9 +11,7 @@ class AlarmDetailTableViewController: UITableViewController {
     // MARK: - Outlets
     @IBOutlet weak var alarmFireDatePicker: UIDatePicker!
     @IBOutlet weak var alarmTitleTextField: UITextField!
-    
     @IBOutlet weak var alarmIsEnabledButton: UIButton!
-    
     
     // MARK: - Properties
     var alarm: Alarm?
@@ -22,11 +20,12 @@ class AlarmDetailTableViewController: UITableViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
     }
     
     // MARK: - Actions
 
-    @IBAction func alarmIsEnabledButtonTapped(_ sender: UIButton) {
+    @IBAction func alarmIsEnabledButtonTapped(_ sender: Any) {
         if let alarm = alarm {
             AlarmController.shared.toggleIsEnabled(alarm: alarm)
             isAlarmOn = alarm.isEnabled
@@ -50,7 +49,7 @@ class AlarmDetailTableViewController: UITableViewController {
     
     // MARK: - Helper Functions
     
-    func updateViews() {
+    func updateView() {
         guard let alarm = alarm else { return }
         alarmFireDatePicker.date = alarm.fireDate ?? Date()
         alarmTitleTextField.text = alarm.title
@@ -68,18 +67,4 @@ class AlarmDetailTableViewController: UITableViewController {
             alarmIsEnabledButton.setTitle("Off", for: .normal)
         }
     }
-
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-    
-        return 3
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 1
-    }
-
-
-
 }

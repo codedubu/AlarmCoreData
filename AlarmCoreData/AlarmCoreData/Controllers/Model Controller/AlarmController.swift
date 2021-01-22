@@ -7,7 +7,7 @@
 
 import CoreData
 
-class AlarmController {
+class AlarmController: AlarmScheduler {
     // MARK: - Shared Instance
     static let shared = AlarmController()
     
@@ -25,6 +25,7 @@ class AlarmController {
     func createAlarm(withTitle title: String, fireDate: Date) {
         let newAlarm = Alarm(title: title, fireDate: fireDate)
         alarms.append(newAlarm)
+        scheduleUserNotification(for: newAlarm)
         CoreDataStack.saveContext()
     }
     
@@ -36,17 +37,20 @@ class AlarmController {
         alarm.title = newTitle
         alarm.fireDate = newFireDate
         alarm.isEnabled = isEnabled
+        scheduleUserNotification(for: alarm)
         CoreDataStack.saveContext()
     }
     
     func toggleIsEnabled(alarm: Alarm) {
         alarm.isEnabled.toggle()
+        alarm.isEnabled ? scheduleUserNotification(for: alarm) : cancelUserNotification(for: alarm)
         CoreDataStack.saveContext()
     }
     
     func delete(alarm: Alarm) {
         guard let index = alarms.firstIndex(of: alarm) else { return }
         alarms.remove(at: index)
+        cancelUserNotification(for: alarm)
         CoreDataStack.context.delete(alarm)
         CoreDataStack.saveContext()
     }

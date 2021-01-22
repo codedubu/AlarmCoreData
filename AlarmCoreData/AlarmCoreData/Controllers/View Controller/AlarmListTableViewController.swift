@@ -29,8 +29,8 @@ class AlarmListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? AlarmTableViewCell else { return UITableViewCell() }
         let alarm = AlarmController.shared.alarms[indexPath.row]
         
-        cell.updateViews(alarm: alarm)
         cell.delegate = self
+        cell.updateViews(alarm: alarm)
         
         return cell
     }
